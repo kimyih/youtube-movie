@@ -1,11 +1,11 @@
 import React from 'react'
 
-const YihCont = () => {
+const VideoPages = () => {
     return (
         <div>
-            YihCont
+            VideoPages
         </div>
     )
 }
 
-export default YihCont
+export default VideoPages
