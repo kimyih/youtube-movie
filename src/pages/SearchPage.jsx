@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from 'react'
-import Main from '../components/section/Main'
-import { Link, useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import Main from '../components/section/Main';
+import { useParams } from 'react-router-dom';
 import Loading from '../components/section/Loading';
+import VideoView from '../components/video/VideoView';
 
 const SearchPages = () => {
     const { searchID } = useParams();
     const [videos, setVideos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [nextPageToken, setNextPageToken] = useState(null);
 
     useEffect(() => {
         const fetchVideos = async () => {
             try {
-                const response = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=48&q=${searchID}&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY} `)
+                const response = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=48&q=${searchID}&type=video&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
                 const data = await response.json();
                 setVideos(data.items);
-                // console.log(data);
+                setNextPageToken(data.nextPageToken);
 
                 // 최소 로딩 속도가 1초 유지
                 setTimeout(() => {
@@ -27,7 +29,20 @@ const SearchPages = () => {
             }
         }
         fetchVideos();
-    }, [searchID])
+    }, [searchID]);
+
+    const loadMoreVideos = async () => {
+        if (nextPageToken) {
+            try {
+                const nextVideoResponse = await fetch(`https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=48&q=${searchID}&type=video&pageToken=${nextPageToken}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
+                const nextVideoData = await nextVideoResponse.json();
+                setVideos(prevVideos => [...prevVideos, ...nextVideoData.items]);
+                setNextPageToken(nextVideoData.nextPageToken);
+            } catch (error) {
+                console.log('더 많은 비디오를 가져오는 중 오류가 발생했습니다.', error);
+            }
+        }
+    }
 
     return (
         <Main
@@ -40,27 +55,12 @@ const SearchPages = () => {
                 <section id='searchPage' className='fade-in'>
                     <h2>🪄<em>{searchID}</em>를 검색한 결과 입니다.</h2>
                     <div className='video__inner search'>
-                        {videos.map((video, index) => (
-                            < div className='video' key={index} >
-                                <div className="video__thumb play__icon">
-                                    <Link
-                                        to={`/video/${video.id.videoId}`}
-                                        style={{ backgroundImage: `url(${video.snippet.thumbnails.high.url})` }}>
-                                    </Link>
-                                </div>
-                                <div className="video__info">
-                                    <div className='title'>
-                                        <Link to={`/video/${video.id.videoId}`}>{video.snippet.title}
-                                        </Link>
-                                    </div>
-                                    <div className='author'>
-                                        <Link to={`/video/${video.snippet.channelId}`}>
-                                            {video.snippet.channelTitle}
-                                        </Link>
-                                    </div>
-                                </div>
-                            </div >
-                        ))}
+                        <VideoView videos={videos} />
+                    </div>
+                    <div className='search__more'>
+                        {nextPageToken && (
+                            <button onClick={loadMoreVideos}>더보기</button>
+                        )}
                     </div>
                 </section>
             )}
@@ -68,4 +68,4 @@ const SearchPages = () => {
     )
 }
 
-export default SearchPages
+export default SearchPages;
