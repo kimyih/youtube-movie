@@ -42,7 +42,7 @@ function MovieSection({ company, title }) {
 
     return (
         <div id={company.toLowerCase()}>
-            <ul className='Main__info' style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <ul className='Main__info' style={{ display: 'flex' }}>
                 {data.map((item, index) => (
                     <li key={index} style={{ listStyle: 'none', padding: '10px' }}>
                         <img src={item.imageURL} alt={item.title} style={{ width: "100%", height: "auto" }} />
