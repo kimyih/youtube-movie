@@ -1,0 +1,56 @@
+.yih_page {
+    width: 100%;
+    padding-left: 260px;
+
+}
+.yih-title {
+    text-align: center;
+    margin: 20px 0;
+    font-weight: 700;
+}
+
+.sub-title_korea {
+    text-align: left;
+    margin: 20px 0;
+    margin-left: 20px;
+    border-bottom: 1px solid #fff;
+    width: 35rem;
+
+}
+
+.yih_chart {
+    display: flex;
+    overflow-x: scroll;
+    margin: 0;
+    padding: 0;
+}
+
+.movie-item {
+    flex: 0 0 230px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid;
+
+    h3 {
+        font-weight: 800;
+        margin-bottom: 5px;
+        background-color: #590E15;
+        color: var(--white);
+    }
+
+    p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        height: 70px;
+        margin-bottom: 10px;
+    }
+}
+
+.movie-image {
+    width: 100%;
+    height: auto;
+}

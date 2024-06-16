@@ -1,7 +1,10 @@
-// src/components/MovieSection.jsx
 import React, { useEffect, useState } from 'react';
 
 const urlPatterns = {
+    CGV: (company, date) => `${company}/${company}Chart_${date}.json`,
+    CineQ: (company, date) => `${company}/${company}Chart_${date}.json`,
+    Moviechart: (company, date) => `${company}/${company}Chart_${date}.json`,
+    Serieson: (company, date) => `${company}/serieson_chart${date}.json`,
     Megabox: (company, date) => `${company}/${company}Chart_${date}.json`
 };
 
@@ -31,12 +34,12 @@ function MovieSection({ company, title }) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                setData(data.slice(0, 10));
+                const repeatedData = [...data.slice(0, 10), ...data.slice(0, 10)]; // 데이터를 두 번 반복
+                setData(repeatedData);
             } catch (error) {
                 console.error(`There was an error fetching the data for ${company}:`, error);
             }
         };
-
         fetchData();
     }, [company, today]);
 

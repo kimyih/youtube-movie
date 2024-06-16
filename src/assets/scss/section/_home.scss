@@ -1,0 +1,51 @@
+.movie_chart {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+.home_movie {
+    justify-content: center;
+    display: flex;
+    padding: 10px;
+    margin-bottom: 20px;
+}
+
+
+.Main__info {
+    display: flex;
+    overflow: hidden;
+    width: calc(200% * 2); /* 리스트를 두 번 반복하므로 넓이를 두 배로 */
+    animation: slide 50s linear infinite;
+}
+
+.Main__info li {
+    flex: 0 0 230px;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+
+/* 슬라이드 애니메이션 정의 */
+@keyframes slide {
+    0% {
+        transform: translateX(0);
+        /* 시작 위치 */
+    }
+
+    100% {
+        transform: translateX(-50%);
+        /* 끝 위치 */
+    }
+}

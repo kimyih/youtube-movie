@@ -17,7 +17,7 @@ export const headerMenus = [
     {
         title: "2arth",
         icon: <LuClover />,
-        src: "/search/yih"
+        src: "/yih"
     }, {
         title: "국내 영화",
         icon: <GiSouthKorea />,

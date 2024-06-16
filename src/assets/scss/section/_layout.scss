@@ -8,50 +8,13 @@
     background-color: #111;
 }
 
-.home_movie {
-    justify-content: center;
-    display: flex;
-    padding: 10px;
-    margin-bottom: 20px;
-}
-
 #main {
     max-width: 2000px;
-    height: calc(100vh - 80px);
+    min-height: 100vh;
     margin: 0 auto;
     padding-left: 260px;
     background-color: #151515;
     position: relative;
-}
-
-.Main__info {
-    display: flex;
-    overflow: hidden;
-    /* 슬라이드 영역 외부의 내용 숨기기 */
-    width: 200%;
-    /* 슬라이드가 자연스럽게 이어지도록 */
-    animation: slide 30s linear infinite;
-    /* 애니메이션 적용 */
-}
-
-.Main__info li {
-    flex: 0 0 230px;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 5px;
-}
-
-/* 슬라이드 애니메이션 정의 */
-@keyframes slide {
-    0% {
-        transform: translateX(0);
-        /* 시작 위치 */
-    }
-
-    100% {
-        transform: translateX(-50%);
-        /* 끝 위치 */
-    }
 }
 
 

@@ -7,6 +7,7 @@ import VideoPage from './pages/VideoPage'
 import ChannelPage from './pages/ChannelPage'
 import Header from './components/section/Header'
 import Footer from './components/section/Footer'
+import YihPage from './pages/YihPage'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
+        <Route path='/yih' element={<YihPage />} />
         <Route path='/search/:searchID' element={<SearchPage />} />
         <Route path='/video/:videoID' element={<VideoPage />} />
         <Route path='/channel/:channelID' element={<ChannelPage />} />
