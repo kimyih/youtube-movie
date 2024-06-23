@@ -1,8 +1,8 @@
 .yih_page {
     width: 100%;
     padding-left: 260px;
-
 }
+
 .yih-title {
     text-align: center;
     margin: 20px 0;
@@ -15,7 +15,6 @@
     margin-left: 20px;
     border-bottom: 1px solid #fff;
     width: 35rem;
-
 }
 
 .yih_chart {
@@ -28,29 +27,83 @@
 .movie-item {
     flex: 0 0 230px;
     margin: 10px;
-    padding: 20px;
+    padding: 5px;
     border-radius: 5px;
-    border: 1px solid;
+    perspective: 1000px;
+    position: relative;
+    width: 230px;
+    height: 345px;
+}
 
-    h3 {
-        font-weight: 800;
-        margin-bottom: 5px;
-        background-color: #590E15;
-        color: var(--white);
-    }
+.movie-item-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    transform-origin: center;
+}
 
-    p {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-line-clamp: 2;
-        -webkit-box-orient: vertical;
-        height: 70px;
-        margin-bottom: 10px;
-    }
+.movie-item:hover .movie-item-inner {
+    transform: rotateY(180deg);
+}
+
+.movie-image, .movie_info {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
 }
 
 .movie-image {
-    width: 100%;
-    height: auto;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    img {
+        width: 100%;
+        height: 100%; 
+        object-fit: cover;
+    }
+}
+
+.movie_info {
+    background: rgba(0, 0, 0, 0.368); /* 반투명 배경 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: rotateY(180deg);
+    padding: 10px;
+    box-sizing: border-box;
+    text-align: center;
+    visibility: hidden;
+    opacity: 0;
+    color: var(--white);
+    transition: visibility 0.6s, opacity 0.6s;
+    z-index: 2; /* 정보들이 포스터 위에 위치하도록 설정 */
+}
+
+.movie-item:hover .movie_info {
+    visibility: visible;
+    opacity: 1; /* hover 시 정보들이 보이도록 설정 */
+}
+
+h3 {
+    font-weight: 800;
+    margin-bottom: 5px;
+    color: var(--white);
+}
+
+p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    height: 70px;
+    margin-bottom: 10px;
+    color: var(--white);
 }
