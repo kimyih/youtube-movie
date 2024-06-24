@@ -19,30 +19,31 @@
 
 #### [홈화면]
 
-![image](https://github.com/HwangInJi/youtubetea/assets/163365140/ce534501-e536-4aad-bb04-88c0766e128f)
-![image](https://github.com/HwangInJi/youtubetea/assets/163365140/2b426537-aed5-4814-b51f-6625d1b1546e)
+![image](https://github.com/kimyih/youtube-movie/assets/163376151/b2545a6d-42f1-4600-afd0-e3358bdbe222)
+
+![image](https://github.com/kimyih/youtube-movie/assets/163376151/b9268676-ce28-4544-9c8f-0df277594a0c)
+
 
 - 홈 화면은 Aside 구조로 레이아웃을 만들었으며, 좌측은 메뉴탭이 있고 우측엔 메인 정보들을 확인 할 수 있음
-- 컨셉과 어울리는 배너 안에 검색 기능을 넣어 홈화면에서도 검색할 수 있도록 기능 설정
-- 하단엔 Tea와 관련된 영상 하나가 새로고침 할 때마다 랜덤으로 재생되며, 이 사이트가 어떤 사이트인지에 대한 간략한 소개
+- 영화 배급사 랭킹을 크롤링하여 현재 인기 상영 중인 영화를 슬라이드 방식으로 표현 
   
 #### [메뉴탭 & 영상 목록]
 
-![image](https://github.com/HwangInJi/youtubetea/assets/163365140/63d953e4-bd18-4408-ad6e-2fb9e30e53e4)
-![image](https://github.com/HwangInJi/youtubetea/assets/163365140/cacc7e3f-a0a7-40e7-ac94-e3923cfacbc0)
-![image](https://github.com/HwangInJi/youtubetea/assets/163365140/5cae4eed-1fe7-4e48-86ce-39c0179d65e6)
+![image](https://github.com/kimyih/youtube-movie/assets/163376151/8997f811-1c41-458a-947e-ac5f5cee66a6)
+![image](https://github.com/kimyih/youtube-movie/assets/163376151/2dfeb472-3eed-4395-b0f4-09ecc0b1852d)
 
 
-- 메뉴탭에 있는 카테고리를 누르면 해당 키워드와 연관된 유튜브 영상이 50개가 나오며, 하단에 더보기 버튼을 누르면 추가로 50개씩 나오도록 설정하여 해당 키워드 영상을 모두 볼 수 있도록 기능 구현
-- 카테고리 밑에 있는 작은 키워드 또한 마찬가지로 해당 키워드가 연관된 유튜브 영상이 나오도록 추가 기능 설정
-  
-#### [유튜브 채널 정보 확인]
+- 메뉴탭에 다양한 영화 장르들을 보여주며 선택할 수 있게 함
+- 영화 장르를 클릭하면 해당하는 키워드에 검색이 됨
+- 영상 하단에 있는 유튜터 글씨를 클릭하면 해당 유튜브 채널로 이동
 
-![image](https://github.com/HwangInJi/youtubetea/assets/163365140/b6d99a39-4f15-44df-ad0f-2b1761337f1b)
-![image](https://github.com/HwangInJi/youtubetea/assets/163365140/28fb8bd2-819b-47a2-9df7-40125595da6d)
-![image](https://github.com/HwangInJi/youtubetea/assets/163365140/b824c9bf-1266-492f-8dd3-1bb5fb9ecc9f)
+#### [추천탭]
 
-- 타이틀 제목 밑에 있는 채널명을 누르면 해당 채널 정보 페이지로 넘어가고, 마찬가지로 채널에 등록된 영상이 50개가 뜨게 되며 더보기를 누르면 50개씩 영상을 추가로 더 볼 수 있도록 설정
+![image](https://github.com/kimyih/youtube-movie/assets/163376151/1546e9e2-a005-439a-a38f-80eba14d9365)
+![image](https://github.com/kimyih/youtube-movie/assets/163376151/0f7a5b99-ae01-433a-96ed-527c67d72f93)
+
+- 각 장르의 나만의 추천 영화를 10개씩 보여주며 포스터를 hover 하면 이미지가 카드 형태로 뒤집어지면서 영화 정보를 알 수 있음 
+
 
 
 
